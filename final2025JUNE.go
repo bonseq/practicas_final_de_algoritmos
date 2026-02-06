@@ -1,0 +1,150 @@
+//gustavcapo777-DocentePythonSI/brAIn67-Estudiante AvanzadaGoSI/ bla bla/ fds
+ALGORITMO FINAL2025JUNE ES
+//DONDE EL PRIMERO REPRESENTA AL LENGUAJE 1PY 2C 3JAVA 4GO, SEGUNDO A LA PERSONA ES
+// 1 EA, 2PG, 3D, Y POR ULTIMO EXPERIENCIA 1SI 2NO
+AMBIENTE
+ESTADISTICO: ARRAY[1..5],[1..4],[1..3]  
+TECNO: secuencia de caracteres
+T; caracter
+LENGUAJES={'J', 'C', 'P', 'G'}
+GEN_TOT:ENTERO(4)
+GRADxp:ENTERO(4)
+
+PROCEDIMIENTO ACERO() ES
+	PARA i:=1 a 5 HACER
+		PARA j:=1 a 4 HACER
+			PARA k:=1 a 2 HACER
+				ESTADISTICO[i,j,k]:=0
+			FIN PARA
+		FIN PARA
+	FIN PARA
+FIN PROCEDIMIENTO
+
+PROCEDIMIENTO ROL() ES
+	SEGUN T HACER
+		:'E': j:=1;
+		:'P': j:=2;
+		:'D': j:=3;
+	FIN SEGUN
+	SI T='E' o T='P' o T='D' ENTONCES
+		MIENTRAS T NO EN LENGUAJES HACER
+			AVZ(TECNO, T)
+		FM
+	FIN SI
+FIN PROCEDIMIENTO
+
+PROCEDIMIENTO LENGUAJEyXP() ES
+	SEGUN T HACER 
+		:'P': i:= 1;
+		:'C': i:= 2;
+		:'J': i:= 3;
+		:'G': i:= 4;
+	FS
+
+	REPETIR 
+		AVZ( TECNO, T)
+	HASTA QUE T= 'N' O T= 'S'
+	SEGUN T HACER
+		:'O': k:=2
+		:'I': k:=1
+	FS
+	ESTADISTICO[5,j,k]:= ESTADISTICO[5, j. k]+1
+	ESTADISTICO[i,4,k]:= ESTADISTICO[i, 4, k]+1
+	ESTADISTICO[i,j,3]:= ESTADISTICO[i, j, 3]+1
+FP
+
+PROCEDIMIENTO GRADUADAS_CON_XP() ES
+	PARA i:=1 A 4 HACER
+		GRADxp:=GRADxp + ESTADISTICO[i, 2, 1]
+	FP
+	W("PROCENTAJE DE GRADUADOS CON XP ES DE: ", GRADxp/GEN_TOT*100, "%")
+FP 
+
+
+PROCEDIMIENTO ESTUDIANTES_MAS() ES
+	max:=lv 
+	PARA i:=1 HASTA 4 HACER
+		SI ESTADISTICO[i, 1, 3] > max ENTONCES
+			max:=ESTADISTICO[i, 1, 3]
+			LENGUAJE:=i
+		FS
+	FP
+	SEGUN i HACER
+		:1: len:="Python";
+		:2: len:= "C";
+		:3: len:= "JAVA";
+		:4: len:= "GO";
+	FS
+	W("LENGUAJE MAS ELEGIDO POR ESTUDIANTES SIN TENER EN CUENTA XP ES:", len, " con:" max, "elecciones")
+	max:=0
+FP
+
+PROCEDIMIENTO PROFESORES_MENOS() ES
+	min:=HV
+	PARA i:=1 a 4 HACER
+		SI ESTADISTICO[i, 2, 1] < min ENTONCES
+			min:=ESTADISTICO[i, 2, 1]
+			LENGUAJE:=i
+		FS
+	FP
+	SEGUN LENGUAJE HACER
+		:1: len:="Python";
+		:2: len:= "C";
+		:3: len:= "JAVA";
+		:4: len:= "GO";
+	FS
+	W("LENGUAJE MENOS ELEGIDO ENTRE DOCENTE CON EXPERIENCIA ES", len " con:", min, " elecciones")
+	min:=0
+FP
+
+PROCEDIMIENTO MENOS__ROL_ELEGIDO() ES
+	min := HV
+		PARA i:=1 a 4 HACER
+			PARA j:= 1 a 3 HACER
+				SI ESTADISTICO[i, j, 3] ENTONCES
+					Min:= ESTADISTICO[i, j, 3] 
+					R:j
+					LENGUAjE:i
+				FS	
+			FP
+		FP
+		SEGUN r bla bla rol:= persona graduada etc etc;
+		segun LENGUAjE bla bla bla ;
+	W("LENGUAGE Y ROL MENOS CON MENOS VOTACION", len, rol)
+	min:=0
+FP
+//lenguaje menos y mas elegido
+PROCEDIMIENTO menor_y_mayor() ES
+	max:=lv ; min:=HV
+	PARA j:= 1 a 4 HACER
+		SI max < ESTADISTICO[i, 4, 3] ENTONCES
+			max:= ESTADISTICO[i, 4, 3] 
+			LENMAX:=i
+		SINO
+			SI min>ESTADISTICO[i, 4, 3] ENTONCES
+				min:= ESTADISTICO[i, 4, 3]
+				LEMIN:=i
+			FS
+		FS
+	FIN PARA
+	SEGUN LENGUAJES MIN Y MAX HACER
+	 	ENCONTRASR LENGUAJE
+	W("LENGUAJE MAS SELCIONADO", LENGUAJEMASSELECIONADO, " LENGUAJE MENOS SELECIONADO", LENGUAJEMENOSSELECIONADO )
+FP
+
+PROCESO
+ARR(TECNO); AVZ(TECNO, T); ACERO()
+MIENTRAS NOFDS(TECNO) HACER
+	REPETIR
+		AVZ(TECNO, T)
+	HASTA QUE T = '-'
+	ROL()
+	LENGUAJE()
+	ESTADISTICO[i, j ,k]:= ESTADISTICO[i,j,k] + 1
+	GEN_TOT:=GEN_TOT+1
+	AVZ(TECNO, T)
+FIN MIENTRAS
+GRADUADAS_CON_XP(); ESTUDIANTES_MAS(); PROFESORES_MENOS(); MENOS_ROL_ELEGIDO(), menor_y_mayor()
+
+
+//me llevo dos horas y 16 minutos
