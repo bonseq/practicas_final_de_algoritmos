@@ -1,0 +1,80 @@
+Ejercicio N° 1 (Total 2 pts)
+Describa y Explique en qué consiste la técnica recursiva, clasifique los casos, Ejemplifique escribiendo. planteo formal y algoritmo, y 
+luego indique que tipos de recursividad se da en su ejemplo.
+ RTA:la tecnica de recursion, en algoritmos, se basa en construir soluciones de forma recursiva, es decir, escribir la solucion que en vez de ser iterativa
+ se llame a si misma, hay dos casos, el recurisivo, que es el cual se llama asi mismo en cada iteracion o pasada, y el base, que es el cual hace que el algoritmo 
+ no quede dando vueltas infinitamente y tenga un cierre.
+
+
+Ejercicio Nº 2 (Total 3 pts)
+Explique qué es un arreglo, describa sus características como estructura de datos en términos de homogeneidad, tamaño y acceso, 
+y analice cómo se rapresenta y organiza conceptualmente en memoria. Enumere procesos que pueden realizarse com arreglos. Explique cada uno de los
+métodos de BÚSQUEDA ORDENADA
+   RTA:un arreglo es un conjunto o coleccion de elementos, todos ellos cumplen la caracteristica de que son del mismo tipo, su tamaño en siempre
+    estatico(esta definido antes de ejecutarse o usarse en el proceso de un algoritmo) y su acceso es DIRECTO es decir se maneja por posicion o
+    indice del elemento de interes en el.
+    ademas el necesita memoria contigua para ser almacenado, representandose como cuadros contiguos en donde dentro tiene su informacion
+    Con ellos podesmos hacer, carga, ordenamiento e insercion, eliminacion y busqueda de elementos 
+    busqueda ORDENADA, en la catedra tenemos dos lineal y dicotomica
+    bla bla me dio paja explicar
+
+
+Ejercicio N° 3 (Total 2 pts)
+Dado un algoritmo que recorre un arreglo de tamaño utilizando dos ciclos anidados, explique cuál es su complejidad temporal en el peor caso, 
+justifique cómo se obtiene dicha complejidad a partir de la estructura del algoritmo y analice cómo variaria si uno de los ciclos dependiera 
+de una condición que reduce el número de iteraciones.
+
+    RTA: LA COMPLEJIDAD EN EL PEOR CASO ES O(n^2) PORQUE LOS DOS CICLOS SE EJECUTAN 
+    SI O SI, INDEPENDIENTEMENTE DE LA CONDICION, EN CAMBIO SI UNO DE LOS CICLOS DEPENDIERA 
+    DE UNA CONDICION QUE REDUCE EL NUMERO DE ITERACIONES, LA COMPLEJIDAD SERIA 
+    O(n) 
+
+
+Ejercicio N° 4 (Total 1.5pts)
+Explique qué es un Arboll Binario de Búsqueda (ABB) y un Árbol AVL, describa las propiedades que los diferencian en términos de orden y balance, 
+y compane su implementación respecto a una lista lineal
+    RTA: REPASAR pq no recuerdo ninguno de los dos :c
+
+Ejercicio Nº 5 (Total 1.5 pts)
+Explique los conceptos de organización y acceso archivos, describa las diferencias entre acceso secuencial y directo, 
+e incluya conceptos de de congruencia y correctitud.
+    RTA: acceso secuencia: el se da gracias a un  ciclo iterativo, va "ventana por ventana" es decir los registros se acceden de manera secuencial, al pasar al siguiente registros
+    la informacion del anterior se "pierde" en el sentido de que para volver a recuperarla debemos vlver al principio del archivos
+    ACCESO DIRECTO: se pueda dar gracias a calcular por formula su INDICE o posicion sin necesidad de recorrer todo el archivo
+    CONGRUENCIA: se define como lo que es semanticamente correcto, es decir que en cierto terminos cumple con ser corrcto y cae en lo logico del problema por ejempo 19/2/2021
+    CORRECTITUD: se define como lo que es sintacticamente correcto, es decir sigue la estructura del lenguaje, ejemplo el de fechas: 19/30/2999 
+
+Ejercicio N° 1
+Desarrollar un algoritmo en pseudocódigo que simule el Juego de Batalla Naval
+-
+Se desea simular una batalla naval que cuenta con los siguientes barcos para cada jugador: 3 de una casilla, 2 de dos casillas y 1 de cuatro 
+casillas. Los barcos pueden disponerse en horizontal o en vertical. Una vez ubicados los barcos, el juego inicia solicitando que se ingresen 
+las coordenadas del disparo y se emite un mensaje con la situación resultante del disparo
+("AGUA"(no tocó el barco), o "IMPACTO" (solo urna parte del barco) o "HUNDIMIENTO" (todo el barco)). Debe simular que están jugando 5 personas, 
+que tienen 25 tiros cada una. Quien gana el juego es quien logra hundir todos los barcos en la menor cantidad de disparos posibles.El algoritmo
+debe informar el jugador ganador y su cantidad de tiros.
+
+
+Ejercicio Nº 2
+Se desea desarrollar un algoritmo que realice la encriptación de una secuencia de palabras, denominada STPL
+Cada palabra de la secuencia debe procesarse letra por letra, transformando cada carácter en un valor numérico según un esquema de encriptación.
+ Además, el fin de cada palabra debe indicarse agregando un o en la secuencia resultante.
+Se dispone de un alfabeto de encriptación, que se recibe como parámetro, el cual asigna a cada letra un peso numérico entero.
+Para cada letra de una palabra:
+1. Se obtiene su peso desde el alfabeto
+2. A ese peso se le suma un valor adicional que depende de la última letra de la palabra:
+
+Si la palabra termina en vocal (a, e, i, o, u): se suma la raíz cuadrada del peso.
+Si la palabra NO termina en vocal se suma el factorial del peso.
+La decisión sobre si usar raíz cuadrada o factorial se toma una sola vez por palabra, en función de su última letra.
+Todas las letras de la palabra se procesan con ese mismo criterio.
+Se dispone de las funciones: RaizCuadrada(x). Factorial(x). Las mismas no deben ser implementadas, solo utilizadas.
+Ud si debe desarrollar la función ENCRIP -esta usa el alfabeto de encriptación- que devuelva el número correspondiente al peso de cada letra
+
+  
+Ejercicio Nº 3
+Escribir una función recursiva que simule el siguiente experimento: Se tiene una rata en una jaula con 3 caminos, entre los cuales elige
+al azar (cada uno tiene la misma probabilidad), si elige el 1 luego de 3 minutos vuelve a la jaula, si elige el 2 luego de 5 minutos vuelve a
+la jaula. en el caso de elegir el 3 luego de 7 minutos sale de la jaula. La rata no aprende, siempre elige entre los 3 caminos con la misma 
+probabilidad, pero quiere su libertad, por lo que recorrerá los caminos hasta salir de la jaula. La función debe devolver el 
+tiempo que tarda la rata en salir de la jaula. Nota: El camino elegido se obtiene de una función Random(), que no es nec sario definir.

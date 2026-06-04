@@ -1,0 +1,88 @@
+algoritmo batalla_naval es
+ambiente
+JUGADOR:Array  (1..5) de TABLERO 
+TABERO:Array (1..10, 1..10) de registro_tablero
+registro_tablero=registro
+	existe:BOOL
+	vida_barco:N(1)
+	POSICION:n(1)
+FIN_REG
+
+PUNTUACION_TOTAL:AREGLO (1..5) DE PUNTUACION
+PUNTUACION=REGISTRO
+	JUGADOR:NUMERICO(1)
+	BARCOS_HUNDIDOS:N(2)
+	TIROS_TOT:=N(2)
+
+procedimiento cargar_bacos() es
+	w("por favor ingrese cordenadas de los barcos de una unidad")
+	para z:= 1 a 3 hacer
+		R(X, Y)
+		JUGADOR[i][x,y].existe:=true 
+		A[i][x,y+].vida:=1
+	fin para
+	W("INGRESE LOS BARCOS DE DOS LUGARES, INGRESE SOLO CORDENADAS EN DONDE COMIENZA EL BARCO, Y POSICION: 1(HORIZONTAL), 2(VERTICAL)")
+		PARA Z:=1 A 2 HACER
+			R(X,Y)
+			R(POS)
+			MIENTRAS (POS=1 Y X>=10) O (POS=2 Y Y>=10) o (A[i][x,y]=true) HACER
+				W("ERROR, posicion invalida, se sale de los limites, ingrese otra cordenada y posicion")
+				R(X, Y, POS)
+			FIN MIENTRAS
+			A[i][x,y].existe:=true;
+			A[i][x,y].poscion:=POS
+			A[i][x,y].vida:=2
+			SI POS=1 ENTONCES
+				A[i][x+1,y].existe:=true A[i][x+1,y].poscion:=POS //vida se le asigna dos en x+1 etc
+			SINO
+				SI POS=2 ENTONCES
+					A[i][x,y+1].Existe:=true; A[i][x,y+1].poscion:=POS
+				FIN SINO
+			FIN SINO 
+		FIN PARA
+	W("INGRESE LOS BARCOS DE TRES POSIIONES, SIGUIENDO LA MISMA LOGICA QUE EL DE DOS POSICIONES")
+	R(X,Y)
+	R(POS)
+	MIENTRAS (POS=1 Y X>=8) O (POS=2 Y Y>=8) O (A[i][x,y]=true) HACER
+		W("ERROR, posicion invalida, se sale de los limites O hay otro barco, ingrese otra cordenada y posicion")
+		R(X, Y, POS)
+	FIN MIENTRAS
+	A[i][x,y].existe:=true;
+	SI POS=1 ENTONCES
+		A[i][x+1,y].existe:=true; A[i][x+1,y].vida:=3
+		A[i][x+2,y].existe:=true
+	SINO
+		SI POS=2 ENTONCES
+			A[i][x,y+1].existe:=true; A[i][x,y+1].vida:=3; A[i][x,y+].poscion:=POS
+			A[i][x,y+2].existe:=true; A[i][x,y+2].vida:=3; A[i][x,y+].poscion:=POS
+		FIN SINO
+	FIN SINo
+	
+FIN PROCEDIMIENTO
+PROCEDIMIENTO JUGAR() ES
+	PARA Z:=1 A 25 HACER
+		PARA C:=1 A 5 HACER
+			W("POR FAVOR, jugador ", c, "INGRESE TABLERO A ATACAR Y CORDENADAS")
+			R(X1, Y1, T_ATACADO)
+			SI A[X1, Y1, T_ATACADO]=true ENTONCES
+				SEGUN A(X1, Y1, T_ATACADO).VIDA Y A(X1, Y1, T_ATACADO).POS HACCER
+					
+
+FIN PROCEDIMIENTO
+
+PROCESO
+INICIAR_MATRIZ()
+
+MIENTRAS OPCION='S' HACER
+	CARGAR_BARCOS()
+	JUGAR()
+	ESTADISTICAS()
+	FIN MIENTRAS
+	W("DESEA VOLVER A JUGAR?")
+	R(OPCION)
+FIN MIENTRAS
+
+
+
+
+			
